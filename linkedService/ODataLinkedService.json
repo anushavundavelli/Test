@@ -1,0 +1,12 @@
+{
+	"name": "ODataLinkedService",
+	"properties": {
+		"description": "Reads data for test purposes",
+		"annotations": [],
+		"type": "OData",
+		"typeProperties": {
+			"url": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc",
+			"authenticationType": "Anonymous"
+		}
+	}
+}
