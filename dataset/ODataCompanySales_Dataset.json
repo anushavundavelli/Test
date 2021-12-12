@@ -1,0 +1,15 @@
+{
+	"name": "ODataCompanySales_Dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ODataLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "CompanySales"
+		}
+	}
+}
