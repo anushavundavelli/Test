@@ -1,0 +1,7 @@
+{
+	"name": "Copy Data",
+	"properties": {
+		"description": "Copies data from OData into Target ADLS Gen2 path",
+		"annotations": []
+	}
+}
