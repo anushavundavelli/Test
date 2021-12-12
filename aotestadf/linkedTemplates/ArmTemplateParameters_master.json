@@ -5,6 +5,12 @@
 		"factoryName": {
 			"value": "aotestadf"
 		},
+		"AzureDataLakeStorageGen2LinkedService_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorageGen2LinkedService_properties_typeProperties_url": {
+			"value": "https://aotestadlsgen2.dfs.core.windows.net"
+		},
 		"ODataLinkedService_properties_typeProperties_url": {
 			"value": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},

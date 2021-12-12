@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "aotestadf"
 		},
+		"AzureDataLakeStorageGen2LinkedService_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageGen2LinkedService'"
+		},
+		"AzureDataLakeStorageGen2LinkedService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://aotestadlsgen2.dfs.core.windows.net"
+		},
 		"ODataLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
@@ -37,6 +45,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorageGen2LinkedService_accountKey": {
+						"value": "[parameters('AzureDataLakeStorageGen2LinkedService_accountKey')]"
+					},
+					"AzureDataLakeStorageGen2LinkedService_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageGen2LinkedService_properties_typeProperties_url')]"
 					},
 					"ODataLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('ODataLinkedService_properties_typeProperties_url')]"
