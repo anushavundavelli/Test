@@ -1,5 +1,5 @@
 {
-	"name": "ODataCompanySales_Dataset",
+	"name": "Source_OData_CompanySales_Dataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ODataLinkedService",
