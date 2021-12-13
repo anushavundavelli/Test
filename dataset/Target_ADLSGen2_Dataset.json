@@ -17,7 +17,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "concat(@dataset().year,'.snappy.parquet')",
+					"value": "@dataset().year",
 					"type": "Expression"
 				},
 				"folderPath": "test",

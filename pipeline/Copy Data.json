@@ -44,7 +44,13 @@
 				"outputs": [
 					{
 						"referenceName": "Target_ADLSGen2_Dataset",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"year": {
+								"value": "@concat(pipeline().parameters.year,'.snappy.parquet')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
