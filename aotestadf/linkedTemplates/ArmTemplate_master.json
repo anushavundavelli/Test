@@ -19,7 +19,7 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
+		"OATestTrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
@@ -59,8 +59,8 @@
 					"ODataLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('ODataLinkedService_properties_typeProperties_url')]"
 					},
-					"OATesttrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
-						"value": "[parameters('OATesttrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year')]"
+					"OATestTrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
+						"value": "[parameters('OATestTrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year')]"
 					}
 				}
 			},

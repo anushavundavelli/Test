@@ -19,7 +19,7 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
+		"OATestTrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		}
@@ -217,7 +217,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/OATesttrigger')]",
+			"name": "[concat(parameters('factoryName'), '/OATestTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -230,7 +230,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"year": "[parameters('OATesttrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year')]"
+							"year": "[parameters('OATestTrigger_properties_OA_CompanySales_Extract_PipeLine_parameters_year')]"
 						}
 					}
 				],
