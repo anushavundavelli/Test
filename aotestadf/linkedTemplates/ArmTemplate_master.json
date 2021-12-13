@@ -19,11 +19,11 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_Copy Data_parameters_triggertime": {
+		"OATesttrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
-		"TestTrigger_properties_Copy Data_parameters_triggertime": {
+		"TestTrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
@@ -63,11 +63,11 @@
 					"ODataLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('ODataLinkedService_properties_typeProperties_url')]"
 					},
-					"OATesttrigger_properties_Copy Data_parameters_triggertime": {
-						"value": "[parameters('OATesttrigger_properties_Copy Data_parameters_triggertime')]"
+					"OATesttrigger_properties_Copy Data_parameters_year": {
+						"value": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
 					},
-					"TestTrigger_properties_Copy Data_parameters_triggertime": {
-						"value": "[parameters('TestTrigger_properties_Copy Data_parameters_triggertime')]"
+					"TestTrigger_properties_Copy Data_parameters_year": {
+						"value": "[parameters('TestTrigger_properties_Copy Data_parameters_year')]"
 					}
 				}
 			},

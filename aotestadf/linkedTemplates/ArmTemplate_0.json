@@ -19,11 +19,11 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_Copy Data_parameters_triggertime": {
+		"OATesttrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
-		"TestTrigger_properties_Copy Data_parameters_triggertime": {
+		"TestTrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		}
@@ -95,9 +95,8 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"year": {
-						"type": "string",
-						"defaultValue": "@pipeline().parameters.year"
+					"yearnow": {
+						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -106,7 +105,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@dataset().year",
+							"value": "@dataset().yearnow",
 							"type": "Expression"
 						},
 						"folderPath": "test",
@@ -130,14 +129,7 @@
 					{
 						"name": "Copy data1",
 						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Set variable year",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
+						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -150,7 +142,7 @@
 							"source": {
 								"type": "ODataSource",
 								"query": {
-									"value": "@GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq variables('year')",
+									"value": "@GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq substring(pipeline().parameters.year,0,4)",
 									"type": "Expression"
 								},
 								"httpRequestTimeout": "00:05:00"
@@ -178,26 +170,13 @@
 								"referenceName": "Target_ADLSGen2_Dataset",
 								"type": "DatasetReference",
 								"parameters": {
-									"year": {
-										"value": "@concat(variables('year'),'.snappy.parquet')",
+									"yearnow": {
+										"value": "@concat(substring(pipeline().parameters.year,0,4),'.snappy.parquet')",
 										"type": "Expression"
 									}
 								}
 							}
 						]
-					},
-					{
-						"name": "Set variable year",
-						"type": "SetVariable",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "year",
-							"value": {
-								"value": "@substring(pipeline().parameters.triggertime,0,4)",
-								"type": "Expression"
-							}
-						}
 					}
 				],
 				"policy": {
@@ -205,13 +184,8 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"triggertime": {
-						"type": "string"
-					}
-				},
-				"variables": {
 					"year": {
-						"type": "String"
+						"type": "string"
 					}
 				},
 				"annotations": []
@@ -235,7 +209,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"triggertime": "[parameters('OATesttrigger_properties_Copy Data_parameters_triggertime')]"
+							"year": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
 						}
 					}
 				],
@@ -278,7 +252,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"triggertime": "[parameters('TestTrigger_properties_Copy Data_parameters_triggertime')]"
+							"year": "[parameters('TestTrigger_properties_Copy Data_parameters_year')]"
 						}
 					}
 				],
