@@ -23,10 +23,6 @@
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
-		"TestTrigger_properties_OA_CompanySales_Extract_parameters_year": {
-			"type": "string",
-			"defaultValue": "@trigger().startTime"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -65,9 +61,6 @@
 					},
 					"OATesttrigger_properties_OA_CompanySales_Extract_parameters_year": {
 						"value": "[parameters('OATesttrigger_properties_OA_CompanySales_Extract_parameters_year')]"
-					},
-					"TestTrigger_properties_OA_CompanySales_Extract_parameters_year": {
-						"value": "[parameters('TestTrigger_properties_OA_CompanySales_Extract_parameters_year')]"
 					}
 				}
 			},

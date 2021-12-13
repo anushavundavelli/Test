@@ -22,10 +22,6 @@
 		"OATesttrigger_properties_OA_CompanySales_Extract_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
-		},
-		"TestTrigger_properties_OA_CompanySales_Extract_parameters_year": {
-			"type": "string",
-			"defaultValue": "@trigger().startTime"
 		}
 	},
 	"variables": {
@@ -61,6 +57,26 @@
 				"typeProperties": {
 					"url": "[parameters('ODataLinkedService_properties_typeProperties_url')]",
 					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TestTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 5,
+						"startTime": "2021-12-13T13:31:00Z",
+						"timeZone": "UTC"
+					}
 				}
 			},
 			"dependsOn": []
@@ -256,38 +272,6 @@
 								-1
 							]
 						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/OA_CompanySales_Extract')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TestTrigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "OA_CompanySales_Extract",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"year": "[parameters('TestTrigger_properties_OA_CompanySales_Extract_parameters_year')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 5,
-						"startTime": "2021-12-13T13:31:00Z",
-						"timeZone": "UTC"
 					}
 				}
 			},
