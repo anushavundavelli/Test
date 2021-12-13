@@ -15,7 +15,7 @@
 			"value": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
 		"OATesttrigger_properties_Copy Data_parameters_year": {
-			"value": "formatDateTime(@trigger().startTime,yyyy)"
+			"value": "@trigger().startTime"
 		},
 		"TestTrigger_properties_Copy Data_parameters_year": {
 			"value": "formatDateTime(@trigger().startTime,yyyy)"
