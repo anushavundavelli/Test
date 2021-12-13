@@ -76,7 +76,7 @@
 			}
 		],
 		"parameters": {
-			"year": {
+			"triggertime": {
 				"type": "string"
 			}
 		},
