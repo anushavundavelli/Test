@@ -57,7 +57,8 @@
 		],
 		"parameters": {
 			"year": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
 			}
 		},
 		"annotations": []
