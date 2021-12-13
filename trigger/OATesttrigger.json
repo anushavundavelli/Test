@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "OA_CompanySales_Extract",
+					"referenceName": "OA_CompanySales_Extract_PipeLine",
 					"type": "PipelineReference"
 				},
 				"parameters": {
