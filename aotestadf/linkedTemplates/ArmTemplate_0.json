@@ -108,7 +108,7 @@
 							"value": "@dataset().yearnow",
 							"type": "Expression"
 						},
-						"folderPath": "test",
+						"folderPath": "data",
 						"fileSystem": "oatarget"
 					},
 					"compressionCodec": "snappy"
