@@ -101,7 +101,8 @@
 							"value": "concat(@dataset().year,'.snappy.parquet')",
 							"type": "Expression"
 						},
-						"folderPath": "OATarget"
+						"folderPath": "Test",
+						"fileSystem": "OATarget"
 					},
 					"compressionCodec": "snappy"
 				},
