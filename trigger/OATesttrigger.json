@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "Copy Data",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"year": "formatDateTime(@trigger().startTime,yyyy)"
 				}
 			}
 		],
