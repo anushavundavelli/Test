@@ -182,8 +182,7 @@
 				},
 				"parameters": {
 					"year": {
-						"type": "string",
-						"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
+						"type": "string"
 					}
 				},
 				"annotations": []
