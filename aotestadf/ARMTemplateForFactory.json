@@ -19,11 +19,11 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_Copy Data_parameters_year": {
+		"OATesttrigger_properties_OA_CompanySales_Extract_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		},
-		"TestTrigger_properties_Copy Data_parameters_year": {
+		"TestTrigger_properties_OA_CompanySales_Extract_parameters_year": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		}
@@ -33,7 +33,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Copy Data')]",
+			"name": "[concat(parameters('factoryName'), '/OA_CompanySales_Extract')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -230,11 +230,11 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Copy Data",
+							"referenceName": "OA_CompanySales_Extract",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"year": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
+							"year": "[parameters('OATesttrigger_properties_OA_CompanySales_Extract_parameters_year')]"
 						}
 					}
 				],
@@ -260,7 +260,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Copy Data')]"
+				"[concat(variables('factoryId'), '/pipelines/OA_CompanySales_Extract')]"
 			]
 		},
 		{
@@ -273,11 +273,11 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Copy Data",
+							"referenceName": "OA_CompanySales_Extract",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"year": "[parameters('TestTrigger_properties_Copy Data_parameters_year')]"
+							"year": "[parameters('TestTrigger_properties_OA_CompanySales_Extract_parameters_year')]"
 						}
 					}
 				],
@@ -292,7 +292,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Copy Data')]"
+				"[concat(variables('factoryId'), '/pipelines/OA_CompanySales_Extract')]"
 			]
 		}
 	]

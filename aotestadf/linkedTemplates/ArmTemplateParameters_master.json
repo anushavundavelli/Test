@@ -14,10 +14,10 @@
 		"ODataLinkedService_properties_typeProperties_url": {
 			"value": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_Copy Data_parameters_year": {
+		"OATesttrigger_properties_OA_CompanySales_Extract_parameters_year": {
 			"value": "@trigger().startTime"
 		},
-		"TestTrigger_properties_Copy Data_parameters_year": {
+		"TestTrigger_properties_OA_CompanySales_Extract_parameters_year": {
 			"value": "@trigger().startTime"
 		},
 		"containerUri": {
