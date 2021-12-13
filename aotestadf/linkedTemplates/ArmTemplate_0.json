@@ -22,6 +22,10 @@
 		"OATesttrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
 			"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
+		},
+		"TestTrigger_properties_Copy Data_parameters_year": {
+			"type": "string",
+			"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
 		}
 	},
 	"variables": {
@@ -228,6 +232,38 @@
 								-1
 							]
 						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Copy Data')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TestTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Copy Data",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"year": "[parameters('TestTrigger_properties_Copy Data_parameters_year')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 5,
+						"startTime": "2021-12-13T12:08:00Z",
+						"timeZone": "UTC"
 					}
 				}
 			},
