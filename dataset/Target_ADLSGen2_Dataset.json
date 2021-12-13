@@ -6,9 +6,8 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"year": {
-				"type": "string",
-				"defaultValue": "@pipeline().parameters.year"
+			"yearnow": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -17,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().year",
+					"value": "@dataset().yearnow",
 					"type": "Expression"
 				},
 				"folderPath": "test",
