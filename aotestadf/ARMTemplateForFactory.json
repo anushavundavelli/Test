@@ -42,7 +42,14 @@
 					{
 						"name": "Copy data1",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Set variable year",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -55,7 +62,7 @@
 							"source": {
 								"type": "ODataSource",
 								"query": {
-									"value": "@GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq substring(pipeline().parameters.year,0,4)",
+									"value": "@GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq variables('YearVariable')",
 									"type": "Expression"
 								},
 								"httpRequestTimeout": "00:05:00"
@@ -84,12 +91,25 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"yearnow": {
-										"value": "@concat(substring(pipeline().parameters.year,0,4),'.snappy.parquet')",
+										"value": "@concat(variables('YearVariable'),'.snappy.parquet')",
 										"type": "Expression"
 									}
 								}
 							}
 						]
+					},
+					{
+						"name": "Set variable year",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "YearVariable",
+							"value": {
+								"value": "@substring(pipeline().parameters.year,0,4)",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
@@ -99,6 +119,11 @@
 				"parameters": {
 					"year": {
 						"type": "string"
+					}
+				},
+				"variables": {
+					"YearVariable": {
+						"type": "String"
 					}
 				},
 				"annotations": []
