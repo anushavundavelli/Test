@@ -5,11 +5,22 @@
 			"referenceName": "AzureDataLakeStorageGen2LinkedService",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"year": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.year"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(@dataset().year,'.snappy.parquet')",
+					"type": "Expression"
+				},
+				"folderPath": "OATarget"
 			},
 			"compressionCodec": "snappy"
 		},

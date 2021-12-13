@@ -18,6 +18,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "ODataSource",
+						"query": {
+							"value": "GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq @pipeline().parameters.year",
+							"type": "Expression"
+						},
 						"httpRequestTimeout": "00:05:00"
 					},
 					"sink": {
