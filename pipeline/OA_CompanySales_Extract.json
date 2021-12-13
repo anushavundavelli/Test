@@ -1,5 +1,5 @@
 {
-	"name": "Copy Data",
+	"name": "OA_CompanySales_Extract",
 	"properties": {
 		"description": "Copies data from OData into Target ADLS Gen2 path",
 		"activities": [

@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "Copy Data",
+					"referenceName": "OA_CompanySales_Extract",
 					"type": "PipelineReference"
 				},
 				"parameters": {
