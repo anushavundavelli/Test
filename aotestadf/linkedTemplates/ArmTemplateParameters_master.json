@@ -15,10 +15,10 @@
 			"value": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
 		"OATesttrigger_properties_Copy Data_parameters_year": {
-			"value": "@trigger().startTime"
+			"value": "@formatDateTime(@trigger().startTime,yyyy)"
 		},
 		"TestTrigger_properties_Copy Data_parameters_year": {
-			"value": "formatDateTime(@trigger().startTime,yyyy)"
+			"value": "@formatDateTime(@trigger().startTime,yyyy)"
 		},
 		"containerUri": {
 			"value": ""
