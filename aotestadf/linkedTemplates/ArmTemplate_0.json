@@ -19,11 +19,11 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
-		"OATesttrigger_properties_Copy Data_parameters_year": {
+		"OATesttrigger_properties_Copy Data_parameters_triggertime": {
 			"type": "string",
-			"defaultValue": "@formatDateTime(@trigger().startTime,yyyy)"
+			"defaultValue": "@trigger().startTime"
 		},
-		"TestTrigger_properties_Copy Data_parameters_year": {
+		"TestTrigger_properties_Copy Data_parameters_triggertime": {
 			"type": "string",
 			"defaultValue": "@trigger().startTime"
 		}
@@ -194,7 +194,7 @@
 						"typeProperties": {
 							"variableName": "year",
 							"value": {
-								"value": "@substring(pipeline().parameters.year,0,4)",
+								"value": "@substring(pipeline().parameters.triggertime,0,4)",
 								"type": "Expression"
 							}
 						}
@@ -205,7 +205,7 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"year": {
+					"triggertime": {
 						"type": "string"
 					}
 				},
@@ -235,7 +235,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"year": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
+							"triggertime": "[parameters('OATesttrigger_properties_Copy Data_parameters_triggertime')]"
 						}
 					}
 				],
@@ -278,7 +278,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"year": "[parameters('TestTrigger_properties_Copy Data_parameters_year')]"
+							"triggertime": "[parameters('TestTrigger_properties_Copy Data_parameters_triggertime')]"
 						}
 					}
 				],
