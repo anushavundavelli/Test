@@ -18,7 +18,7 @@
 			"value": "@formatDateTime(@trigger().startTime,yyyy)"
 		},
 		"TestTrigger_properties_Copy Data_parameters_year": {
-			"value": "@trigger().startTime"
+			"value": "@substring(@trigger().startTime,0,4)"
 		},
 		"containerUri": {
 			"value": ""

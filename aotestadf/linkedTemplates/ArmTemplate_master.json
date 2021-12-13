@@ -25,7 +25,7 @@
 		},
 		"TestTrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
-			"defaultValue": "@trigger().startTime"
+			"defaultValue": "@substring(@trigger().startTime,0,4)"
 		},
 		"containerUri": {
 			"type": "string",

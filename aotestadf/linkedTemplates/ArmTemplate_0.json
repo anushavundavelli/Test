@@ -25,7 +25,7 @@
 		},
 		"TestTrigger_properties_Copy Data_parameters_year": {
 			"type": "string",
-			"defaultValue": "@trigger().startTime"
+			"defaultValue": "@substring(@trigger().startTime,0,4)"
 		}
 	},
 	"variables": {
@@ -245,7 +245,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
