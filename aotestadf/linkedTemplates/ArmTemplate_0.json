@@ -193,7 +193,7 @@
 						"typeProperties": {
 							"variableName": "YearVariable",
 							"value": {
-								"value": "@pipeline().parameters.year",
+								"value": "@substring(pipeline().parameters.year,0,4)",
 								"type": "Expression"
 							}
 						}
