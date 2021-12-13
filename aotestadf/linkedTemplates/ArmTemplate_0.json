@@ -18,6 +18,10 @@
 		"ODataLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
+		},
+		"OATesttrigger_properties_Copy Data_parameters_year": {
+			"type": "string",
+			"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
 		}
 	},
 	"variables": {
@@ -155,11 +159,56 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"parameters": {
+					"year": {
+						"type": "string"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Source_OData_CompanySales_Dataset')]",
 				"[concat(variables('factoryId'), '/datasets/Target_ADLSGen2_Dataset')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/OATesttrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Copy Data",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"year": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Month",
+						"interval": 1,
+						"startTime": "2021-12-13T00:27:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"hours": [
+								7
+							],
+							"monthDays": [
+								-1
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Copy Data')]"
 			]
 		}
 	]
