@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
 		},
+		"OATesttrigger_properties_Copy Data_parameters_year": {
+			"type": "string",
+			"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +58,9 @@
 					},
 					"ODataLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('ODataLinkedService_properties_typeProperties_url')]"
+					},
+					"OATesttrigger_properties_Copy Data_parameters_year": {
+						"value": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
 					}
 				}
 			},

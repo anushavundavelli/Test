@@ -18,6 +18,10 @@
 		"ODataLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://services.odata.org/AdventureWorksV3/AdventureWorks.svc"
+		},
+		"OATesttrigger_properties_Copy Data_parameters_year": {
+			"type": "string",
+			"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
 		}
 	},
 	"variables": {
@@ -91,7 +95,7 @@
 				"parameters": {
 					"year": {
 						"type": "string",
-						"defaultValue": "formatDateTime(pipeline().TriggerTime,yyyy)"
+						"defaultValue": "formatDateTime(@trigger().startTime,yyyy)"
 					}
 				},
 				"annotations": []
@@ -202,7 +206,9 @@
 							"referenceName": "Copy Data",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"year": "[parameters('OATesttrigger_properties_Copy Data_parameters_year')]"
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
