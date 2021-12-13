@@ -3,7 +3,14 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Copy Data",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
@@ -12,6 +19,9 @@
 				"startTime": "2021-12-13T00:27:00Z",
 				"timeZone": "UTC",
 				"schedule": {
+					"minutes": [
+						0
+					],
 					"hours": [
 						7
 					],
