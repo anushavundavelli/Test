@@ -42,7 +42,14 @@
 					{
 						"name": "Copy data1",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Set variable year",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -90,6 +97,19 @@
 								}
 							}
 						]
+					},
+					{
+						"name": "Set variable year",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "year",
+							"value": {
+								"value": "@substring(pipeline().parameters.year,0,4)",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
@@ -103,8 +123,7 @@
 				},
 				"variables": {
 					"year": {
-						"type": "String",
-						"defaultValue": "@substring(pipeline().parameters.year,0,4)"
+						"type": "String"
 					}
 				},
 				"annotations": []
