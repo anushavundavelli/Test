@@ -10,7 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"year": "@trigger().startTime"
+					"year": "@formatDateTime(@trigger().startTime,yyyy)"
 				}
 			}
 		],
