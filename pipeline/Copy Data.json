@@ -6,14 +6,7 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Set variable year",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -60,23 +53,10 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Set variable year",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "year",
-					"value": {
-						"value": "@substring(pipeline().parameters.triggertime,0,4)",
-						"type": "Expression"
-					}
-				}
 			}
 		],
 		"parameters": {
-			"triggertime": {
+			"year": {
 				"type": "string"
 			}
 		},
