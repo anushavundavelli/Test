@@ -149,7 +149,7 @@
 							"source": {
 								"type": "ODataSource",
 								"query": {
-									"value": "@GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq variables('YearVariable')",
+									"value": "GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq @{variables('YearVariable')}",
 									"type": "Expression"
 								},
 								"httpRequestTimeout": "00:05:00"
