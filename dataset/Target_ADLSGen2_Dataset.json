@@ -22,7 +22,7 @@
 				"folderPath": "data",
 				"fileSystem": "oatarget"
 			},
-			"compressionCodec": "none"
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	}
