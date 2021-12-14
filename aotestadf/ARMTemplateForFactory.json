@@ -87,7 +87,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"yearnow": {
-										"value": "@concat(variables('YearVariable'),'.snappy.parquet')",
+										"value": "@concat(variables('YearVariable'),'.snappy.csv')",
 										"type": "Expression"
 									}
 								}
