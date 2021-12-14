@@ -179,7 +179,72 @@
 									"type": "ParquetWriteSettings"
 								}
 							},
-							"enableStaging": false
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ProductCategory",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ProductCategory",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ProductSubCategory",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ProductSubCategory",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OrderYear",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OrderYear",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OrderQtr",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OrderQtr",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Sales",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Sales",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ID",
+											"type": "Int64"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "Int64"
+										}
+									}
+								]
+							}
 						},
 						"inputs": [
 							{
