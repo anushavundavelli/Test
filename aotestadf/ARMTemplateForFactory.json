@@ -58,7 +58,7 @@
 							"source": {
 								"type": "ODataSource",
 								"query": {
-									"value": "GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$filter=OrderYear eq @{variables('YearVariable')}",
+									"value": "GET https://services.odata.org/AdventureWorksV3/AdventureWorks.svc/CompanySales?$select=ProductCategory,ProductSubCategory,OrderYear,OrderQtr,Sales,ID&$filter=OrderYear eq @{variables('YearVariable')}",
 									"type": "Expression"
 								},
 								"httpRequestTimeout": "00:05:00"
@@ -152,7 +152,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"yearnow": {
-										"value": "@concat(variables('YearVariable'),'.csv')",
+										"value": "@concat(variables('YearVariable'),'.snappy.parquet')",
 										"type": "Expression"
 									}
 								}
@@ -240,7 +240,7 @@
 						"folderPath": "data",
 						"fileSystem": "oatarget"
 					},
-					"compressionCodec": "none"
+					"compressionCodec": "snappy"
 				},
 				"schema": []
 			},
