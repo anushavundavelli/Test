@@ -127,7 +127,7 @@
 						"folderPath": "data",
 						"fileSystem": "oatarget"
 					},
-					"compressionCodec": "snappy"
+					"compressionCodec": "none"
 				},
 				"schema": []
 			},
@@ -194,7 +194,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"yearnow": {
-										"value": "@concat(variables('YearVariable'),'.snappy.csv')",
+										"value": "@concat(variables('YearVariable'),'.csv')",
 										"type": "Expression"
 									}
 								}
